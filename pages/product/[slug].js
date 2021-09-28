@@ -14,11 +14,11 @@ const Index = ( { product } ) =>
     return (
         <Container addClass="py-8">
             <p className="text-sm cursor-pointer" onClick={() => Router.back()}>
-                ⟵ Go back
+                ⟵ <span className="hover:font-semibold">Go back</span>
             </p>
 
             {productName &&
-                <h1 className="pt-3 pb-5 text-2xl font-bold">{productName}</h1>}
+                <h1 className="py-3 text-2xl font-bold">{productName}</h1>}
 
 
             <Image url={productImage} random size="1600x800" alt={productName} addClass="w-full my-4" />
@@ -28,7 +28,7 @@ const Index = ( { product } ) =>
             {isSale &&
                 <span className="px-3 py-1 text-base font-bold text-white bg-red-500">SALE</span>}
 
-            <p className="my-5 text-base">
+            <p className="my-2 text-base sm:my-5">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, a aperiam. Odio ratione beatae recusandae quidem iste tempore, libero, maiores sint quis animi minima sunt dolorum? Nesciunt veritatis hic, dolor voluptatem sint voluptatibus rerum iure tempore, quos suscipit magni odit molestiae vel impedit ad fugit non consequatur? Tempore placeat repellat vitae blanditiis porro rem aliquam magni sit impedit minima tenetur ratione, earum, doloremque sed, in fugit inventore. Nesciunt, illum, aliquid sapiente dolorum ullam est, quos facere consequatur laboriosam ipsa praesentium.
             </p>
         </Container>

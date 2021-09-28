@@ -59,7 +59,6 @@ export default function Home ()
   //FUNCTION TO GET TOTAL COUNT OF FILTERED PRODUCTS
   const handleLength = ( length ) =>
   {
-    console.log( length, filter );
     setFilter( { ...filter, number: length } );
   };
 
@@ -92,8 +91,7 @@ export default function Home ()
     <Seo title="Product Home" description="Our range of products is available here" />
     <Container>
 
-      <Filter productTypes={types} filterProducts={filterProducts} />
-      {filter.state && <p className="mb-5">Showing {filter.number} results for {filter.type}</p>}
+      <Filter productTypes={types} filterProducts={filterProducts} filter={filter} />
       <div className="grid grid-cols-1 gap-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {products && filteredProducts.map( ( product, i ) =>
         {

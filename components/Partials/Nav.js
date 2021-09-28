@@ -8,7 +8,7 @@ const Nav = () =>
         <div>
             <Container addClass="flex justify-center items-center pt-4 font-bold uppercase">
                 <Link href="/">
-                    <a className="hover:transition hover:duration-150 hover:text-yellow-500">Home</a>
+                    <a className="transition hover:duration-150 hover:text-yellow-500">Home</a>
                 </Link>
             </Container>
         </div>

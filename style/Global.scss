@@ -3,3 +3,10 @@ body {
   font-family: monospace, "Roboto", sans-serif;
   text-rendering: geometricPrecision;
 }
+
+.productImage {
+  @media screen and (max-width: 767px) {
+    max-height: 400px;
+    object-fit: cover;
+  }
+}
