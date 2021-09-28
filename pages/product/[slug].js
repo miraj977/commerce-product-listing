@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import doAxios from '@lib/doAxios';
 import Loading from '@components/Loading';
 import Container from '@components/Layout/Container';
+import Image from '@components/Image';
 const Index = ( { product } ) =>
 {
     const { productName, price, isSale, index, productImage, type } = product[ 0 ];
@@ -11,6 +12,7 @@ const Index = ( { product } ) =>
     return (
         <Container>
             {productName}
+            <Image url={productImage} size="1600x800" alt={productName} addClass="w-full my-4" />
         </Container>
     );
 };
