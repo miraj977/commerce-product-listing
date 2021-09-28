@@ -4,6 +4,7 @@ import Loading from '@components/Loading';
 import Container from '@components/Layout/Container';
 import Image from '@components/Image';
 import Router from 'next/router';
+import Seo from '@components/Seo';
 
 const Index = ( { product } ) =>
 {
@@ -13,6 +14,7 @@ const Index = ( { product } ) =>
 
     return (
         <Container addClass="py-8">
+            <Seo title={productName} />
             <p className="text-sm cursor-pointer" onClick={() => Router.back()}>
                 ⟵ <span className="hover:font-semibold">Go back</span>
             </p>
