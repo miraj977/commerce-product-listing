@@ -94,7 +94,7 @@ export default function Home ()
       <div className="grid grid-cols-1 gap-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {products && filteredProducts.map( ( product, i ) =>
         {
-          return <ProductCard key={i} {...product} />;
+          return <ProductCard key={i} {...product} onClick={() => setIsLoading( true )} />;
         } )}
       </div>
     </Container>
