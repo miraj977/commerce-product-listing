@@ -9,8 +9,12 @@ const Filter = ( { productTypes, filterProducts } ) =>
     };
 
     return (
-        <div className="flex justify-end">
-            <select name="filter" onChange={( e ) => handleChangeFilter( e )}>
+        <div className="flex items-center justify-end gap-5 p-3 my-5 border-2 border-gray-700 rounded-md">
+            <p className="text-base">Filter by</p>
+            <select name="filter"
+                onChange={( e ) => handleChangeFilter( e )}
+                className="w-full p-2 text-base border border-gray-700 rounded-md cursor-pointer focus:outline-none"
+                style={{ maxWidth: 150 }}>
                 <option value="all">All</option>
                 {productTypes.map( ( type, i ) =>
                 {
