@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import ProductCard from '@components/ProductCard';
-import doAxios from '@lib/doAxios';
 import Container from '@components/Layout/Container';
 import Filter from '@components/Filter';
 import Seo from '@components/Seo';
 import Loading from '@components/Loading';
+import fetchProducts from '@lib/Products';
 
 export default function Home ()
 {
@@ -17,17 +17,6 @@ export default function Home ()
     number: 0,
     type: ''
   } );
-
-  // FETCH PRODUCTS FROM CUSTOM API AND STORE IN STATE
-  const getProducts = async () =>
-  {
-    const request = await doAxios( `/api/products` );
-    const data = await request.data;
-    setProducts( data );
-    setFilteredProducts( data );
-    setTypes( [ ...new Set( data.map( product => product.type ) ) ] );
-    setIsLoading( false );
-  };
 
   // FILTER PRODUCTS FUNCTION
   const filterProducts = ( type ) =>
@@ -56,10 +45,14 @@ export default function Home ()
     }
   };
 
-  //FUNCTION TO GET TOTAL COUNT OF FILTERED PRODUCTS
-  const handleLength = ( length ) =>
+  // GET PRODUCTS AND STORE IT
+  const getProducts = async () =>
   {
-    setFilter( { ...filter, number: length } );
+    const data = await fetchProducts();
+    setProducts( data );
+    setFilteredProducts( data );
+    setTypes( [ ...new Set( data.map( product => product.type ) ) ] );
+    setIsLoading( false );
   };
 
   //RUN ONCE ON PAGE LOAD
@@ -67,6 +60,13 @@ export default function Home ()
   {
     getProducts();
   }, [] );
+
+
+  //FUNCTION TO GET TOTAL COUNT OF FILTERED PRODUCTS
+  const handleLength = ( length ) =>
+  {
+    setFilter( { ...filter, number: length } );
+  };
 
   // RUN EVERYTIME FILTERED PRODUCT UPDATES AND GET ITS COUNT
   useEffect( () =>
@@ -90,7 +90,6 @@ export default function Home ()
   return <>
     <Seo title="Product Home" description="Our range of products is available here" />
     <Container>
-
       <Filter productTypes={types} filterProducts={filterProducts} filter={filter} />
       <div className="grid grid-cols-1 gap-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {products && filteredProducts.map( ( product, i ) =>
