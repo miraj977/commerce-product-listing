@@ -25,25 +25,27 @@ export default function Home ()
   };
 
   // FILTER PRODUCTS FUNCTION
-
   const filterProducts = ( type ) =>
   {
-
+    if ( type.toLowerCase() == 'all' )
+      return setFilteredProducts( products );
+    else
+      setFilteredProducts( () =>
+      {
+        return products.filter( ( product ) => product.type.toLowerCase() == type.toLowerCase() );
+      } );
   };
 
   //RUN ONCE ON PAGE LOAD
-
   useEffect( () =>
   {
     getProducts();
   }, [] );
 
   // IF PAGE IS LOADING
-
   if ( isLoading ) return <Loading />;
 
   // IF NO PRODUCT AVAILABLE
-
   if ( !products || products.length === 0 )
   {
     return <Container addClass="grid place-items-center h-screen">
@@ -52,7 +54,6 @@ export default function Home ()
   }
 
   // IF PRODUCT IS AVAILABLE
-
   return <>
     <Seo title="Product Home" description="Our range of products is available here" />
     <Container>
