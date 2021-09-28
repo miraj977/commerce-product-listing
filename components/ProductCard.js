@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import Link from 'next/link';
 import Image from './Image';
 
-const ProductCard = ( { index, isSale, price, productImage, productName, type } ) =>
+const ProductCard = ( { index, isSale, price, productImage, productName, type, handleLoading } ) =>
 {
     const divRef = useRef( null );
 
@@ -26,6 +26,7 @@ const ProductCard = ( { index, isSale, price, productImage, productName, type } 
                 divRef.current.children[ 0 ].childNodes[ 0 ].classList
                     .replace( 'text-gray-700', 'text-white' );
             }}
+            onClick={handleLoading}
         >
             <Link href={`/product/${ index }`}>
                 <a className="flex flex-col justify-between">

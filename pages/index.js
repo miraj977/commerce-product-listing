@@ -68,6 +68,11 @@ export default function Home ()
     setFilter( { ...filter, number: length } );
   };
 
+  const handleLoading = () =>
+  {
+    setIsLoading( true );
+  };
+
   // RUN EVERYTIME FILTERED PRODUCT UPDATES AND GET ITS COUNT
   useEffect( () =>
   {
@@ -91,11 +96,10 @@ export default function Home ()
     <Seo title="Product Home" description="Our range of products is available here" />
     <Container>
       <Filter productTypes={types} filterProducts={filterProducts} filter={filter} />
-      <div className="grid grid-cols-1 gap-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-        onClick={() => setIsLoading( true )}>
+      <div className="grid grid-cols-1 gap-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {products && filteredProducts.map( ( product, i ) =>
         {
-          return <ProductCard key={i} {...product} />;
+          return <ProductCard key={i} {...product} handleLoading={handleLoading} />;
         } )}
       </div>
     </Container>

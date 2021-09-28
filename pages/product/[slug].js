@@ -20,7 +20,7 @@ const Index = ( { product } ) =>
             </p>
 
             {productName &&
-                <h1 className="py-3 text-2xl font-bold">{productName}</h1>}
+                <h1 className="py-3 text-2xl font-bold">{productName} <span className="px-2 py-0.5 mx-1 text-base bg-yellow-400 rounded-md">{type ?? ''}</span></h1>}
 
 
             <Image url={productImage} random size="1600x800" alt={productName} addClass="w-full my-4" />
