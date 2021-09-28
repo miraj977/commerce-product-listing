@@ -10,6 +10,7 @@ const Filter = ( { productTypes, filterProducts } ) =>
 
     return (
         <div className="flex items-center justify-end gap-5 p-3 my-5 border-2 border-gray-700 rounded-md">
+
             <p className="text-base">Filter by</p>
             <select name="filter"
                 onChange={( e ) => handleChangeFilter( e )}

@@ -12,6 +12,11 @@ export default function Home ()
   const [ types, setTypes ] = useState( [] );
   const [ products, setProducts ] = useState( [] );
   const [ filteredProducts, setFilteredProducts ] = useState( [] );
+  const [ filter, setFilter ] = useState( {
+    state: false,
+    number: 0,
+    type: ''
+  } );
 
   // FETCH PRODUCTS FROM CUSTOM API AND STORE IN STATE
   const getProducts = async () =>
@@ -28,12 +33,34 @@ export default function Home ()
   const filterProducts = ( type ) =>
   {
     if ( type.toLowerCase() == 'all' )
+    {
+      setFilter( {
+        state: false
+      } );
       return setFilteredProducts( products );
+    }
     else
+    {
       setFilteredProducts( () =>
       {
         return products.filter( ( product ) => product.type.toLowerCase() == type.toLowerCase() );
       } );
+      setFilter( ( filteredProducts ) =>
+      {
+        return {
+          state: true,
+          number: filteredProducts.length,
+          type: type
+        };
+      } );
+    }
+  };
+
+  //FUNCTION TO GET TOTAL COUNT OF FILTERED PRODUCTS
+  const handleLength = ( length ) =>
+  {
+    console.log( length, filter );
+    setFilter( { ...filter, number: length } );
   };
 
   //RUN ONCE ON PAGE LOAD
@@ -41,6 +68,13 @@ export default function Home ()
   {
     getProducts();
   }, [] );
+
+  // RUN EVERYTIME FILTERED PRODUCT UPDATES AND GET ITS COUNT
+  useEffect( () =>
+  {
+    handleLength( filteredProducts.length );
+  }, [ filteredProducts ] );
+
 
   // IF PAGE IS LOADING
   if ( isLoading ) return <Loading />;
@@ -59,8 +93,8 @@ export default function Home ()
     <Container>
 
       <Filter productTypes={types} filterProducts={filterProducts} />
-
-      <div className="grid grid-cols-1 gap-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      {filter.state && <p className="mb-5">Showing {filter.number} results for {filter.type}</p>}
+      <div className="grid grid-cols-1 gap-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {products && filteredProducts.map( ( product, i ) =>
         {
           return <ProductCard key={i} {...product} />;

@@ -11,7 +11,7 @@ const ProductCard = ( { index, isSale, price, productImage, productName, type } 
                 <a>
                     {isSale &&
                         <div className="absolute top-0 left-0 px-3 py-1 text-sm font-semibold tracking-widest text-white capitalize bg-red-500 rounded-br-md">
-                            Sale
+                            SALE
                         </div>}
                     {/* RESUABLE IMAGE COMPONENT WITH FALLBACK URL */}
                     <Image url={productImage} size="512x512" alt={productName} index={index} addClass="p-5 xl:p-12" />
