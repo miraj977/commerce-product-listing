@@ -13,7 +13,8 @@ const Filter = ( { productTypes, filterProducts, filter } ) =>
         ${ filter.state ? "justify-between" : "justify-end" }`}>
             {filter.state &&
                 <>
-                    <p className="hidden md:block">Showing {filter.number} results for {filter.type}</p>
+                    <p className="hidden md:block">Showing <b>{filter.number}</b>  {filter.number > 1
+                        ? "results" : "result"} for "{filter.type}"</p>
                     <p className="block md:hidden"> {filter.type} ({filter.number})</p>
                 </>
             }
