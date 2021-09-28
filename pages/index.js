@@ -21,11 +21,13 @@ export default function Home ()
   // FILTER PRODUCTS FUNCTION
   const filterProducts = ( type ) =>
   {
+    setIsLoading( true );
     if ( type.toLowerCase() == 'all' )
     {
       setFilter( {
         state: false
       } );
+      setIsLoading( false );
       return setFilteredProducts( products );
     }
     else
@@ -42,6 +44,7 @@ export default function Home ()
           type: type
         };
       } );
+      setIsLoading( false );
     }
   };
 
