@@ -1,5 +1,5 @@
 module.exports = {
     env: {
-        customKey: 'my-value',
+        baseUrl: 'http://localhost:3000',
     },
 }
