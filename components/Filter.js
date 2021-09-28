@@ -13,7 +13,7 @@ const Filter = ( { productTypes, filterProducts } ) =>
             <p className="text-base">Filter by</p>
             <select name="filter"
                 onChange={( e ) => handleChangeFilter( e )}
-                className="w-full p-2 text-base border border-gray-700 rounded-md cursor-pointer focus:outline-none"
+                className="w-full p-2 text-base border-2 border-gray-700 rounded-md cursor-pointer focus:outline-none"
                 style={{ maxWidth: 150 }}>
                 <option value="all">All</option>
                 {productTypes.map( ( type, i ) =>

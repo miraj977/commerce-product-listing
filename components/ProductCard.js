@@ -7,10 +7,10 @@ const ProductCard = ( { index, isSale, price, productImage, productName, type } 
         e.target.src = `https://source.unsplash.com/collection/${ index }/512x512`;
     };
     return (
-        <div className="relative w-full border border-gray-900 ">
+        <div className="relative w-full border-2 border-gray-900 cursor-pointer hover:bg-yellow-400 hover:transition hover:duration-400 hover:ease-in">
             {isSale &&
-                <div className="absolute top-0 left-0 px-3 py-1 text-sm font-semibold text-white capitalize bg-red-500">
-                    SALE
+                <div className="absolute top-0 left-0 px-3 py-1 text-sm font-semibold tracking-widest text-white capitalize bg-red-500 rounded-br-md">
+                    Sale
                 </div>}
             <img onError={( e ) => addDefaultSrc( e )} className="p-5 responsive xl:p-12" src={productImage} alt={productName} />
             <div className="flex items-center justify-between gap-4 px-5 pb-5 text-base text-gray-900">
