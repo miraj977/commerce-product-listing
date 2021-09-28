@@ -40,7 +40,7 @@ export default Index;
 export async function getServerSideProps ( context )
 {
     const { slug } = context.query;
-    const request = await doAxios( `${ process.env.baseUrl }/api/product/${ slug }` );
+    const request = await doAxios( `/api/product/${ slug }` );
     const product = await request.data;
 
     return {
