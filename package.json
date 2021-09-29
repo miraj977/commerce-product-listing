@@ -1,9 +1,11 @@
 {
   "private": true,
+  "author": "Miraj Aryal <mirajaryal@gmail.com> (https://mirajaryal.me/)",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest"
   },
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
@@ -16,6 +18,8 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",
+    "babel-jest": "^27.2.3",
+    "jest": "^27.2.3",
     "postcss": "^8.3.5",
     "tailwindcss": "^2.2.4"
   }
