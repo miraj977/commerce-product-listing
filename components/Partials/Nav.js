@@ -42,7 +42,7 @@ const Nav = () =>
 
     useEffect( () =>
     {
-        const timer = setTimeout( () => { setIsLoading( false ); }, 600 );
+        const timer = setTimeout( () => { setIsLoading( false ); }, 200 );
         //cleanup function
         return () => clearTimeout( timer );
     }, [ isLoading ] );
