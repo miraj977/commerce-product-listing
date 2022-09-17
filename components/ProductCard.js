@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import Link from 'next/link';
 import Image from './Image';
 
-const ProductCard = ( { index, isSale, price, productImage, productName, type, handleLoading } ) =>
+const ProductCard = ( { index, isSale, price, productImage, productName, handleLoading } ) =>
 {
     const divRef = useRef( null );
 
