@@ -84,7 +84,7 @@ export default function Home ()
 
 
   // IF PAGE IS LOADING
-  if ( isLoading ) return <Loading />;
+  // if ( isLoading ) return <Loading />;
 
   // IF NO PRODUCT AVAILABLE
   if ( !products || products.length === 0 )
@@ -98,12 +98,12 @@ export default function Home ()
   return <>
     <Seo title="Product Home" description="Our range of products is available here" />
     <Container>
-      <Filter productTypes={types} filterProducts={filterProducts} filter={filter} />
+      <Filter productTypes={ types } filterProducts={ filterProducts } filter={ filter } />
       <div className="grid grid-cols-1 gap-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {products && filteredProducts.map( ( product, i ) =>
+        { products && filteredProducts.map( ( product, i ) =>
         {
-          return <ProductCard key={i} {...product} handleLoading={handleLoading} />;
-        } )}
+          return <ProductCard key={ i } { ...product } handleLoading={ handleLoading } />;
+        } ) }
       </div>
     </Container>
   </>;
