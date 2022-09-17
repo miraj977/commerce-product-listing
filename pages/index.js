@@ -84,7 +84,7 @@ export default function Home ()
 
 
   // IF PAGE IS LOADING
-  // if ( isLoading ) return <Loading />;
+  if ( isLoading && products ) return <Loading />;
 
   // IF NO PRODUCT AVAILABLE
   if ( !products || products.length === 0 )

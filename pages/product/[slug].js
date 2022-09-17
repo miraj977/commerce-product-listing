@@ -15,8 +15,8 @@ const Index = ( { product } ) =>
     return (
         <Container addClass="py-8">
             <Seo title={ productName } />
-            <p className="text-sm cursor-pointer" onClick={ () => Router.back() }>
-                ⟵ <span className="hover:font-semibold">Go back</span>
+            <p className="flex gap-3 text-sm cursor-pointer align-center" onClick={ () => Router.back() }>
+                <span className="mt-[-2.5px]">⟵</span> <span className="hover:font-semibold">Go back</span>
             </p>
 
             { productName &&
